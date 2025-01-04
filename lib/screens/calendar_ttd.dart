@@ -151,7 +151,7 @@ class _CalendarTTDScreenState extends State<CalendarTTDScreen> {
                 _addHaidPeriod(start); // Only pass the start date
               }
             },
-            child: const Text("Tambah Haid"),
+            child: const Text("Tambah Tablet"),
           ),
         ],
       ),

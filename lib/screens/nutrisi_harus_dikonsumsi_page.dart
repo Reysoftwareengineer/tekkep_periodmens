@@ -85,6 +85,8 @@ class NutrisiHarusDikonsumsiPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Nutrisi yang Harus Dikonsumsi'),
+        backgroundColor: Colors.pink[200], // Soft pink for consistency
+        foregroundColor: Colors.white, // Menjadikan warna judul putih
       ),
       body: ListView(
         padding: const EdgeInsets.all(16.0),

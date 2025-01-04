@@ -12,6 +12,7 @@ class CaraPemasanganPembalutPage extends StatelessWidget {
           style: TextStyle(fontWeight: FontWeight.normal),
         ),
         backgroundColor: Colors.pink[200],
+        foregroundColor: Colors.white, // Menjadikan warna judul putih
         elevation: 0,
       ),
       body: ListView(
@@ -95,6 +96,7 @@ class CaraPemasanganPembalutPage extends StatelessWidget {
       'Jika menggunakan pembalut bersayap, lepaskan lapisan pelindung sayap dan rekatkan sayap ke bagian luar celana dalam untuk mencegah pergeseran.',
       'Kenakan celana dalam seperti biasa dan pastikan pembalut nyaman dan tidak terlipat.',
     ];
+
     return List.generate(
       steps.length,
       (index) => ListTile(
@@ -105,9 +107,13 @@ class CaraPemasanganPembalutPage extends StatelessWidget {
             style: const TextStyle(color: Colors.white),
           ),
         ),
-        title: Text(
-          steps[index],
-          style: const TextStyle(fontSize: 16),
+        title: Align(
+          alignment: Alignment.centerLeft, // Pastikan teks berada di kiri
+          child: Text(
+            steps[index],
+            textAlign: TextAlign.justify, // Rata kanan-kiri
+            style: const TextStyle(fontSize: 16),
+          ),
         ),
       ),
     );
@@ -124,9 +130,13 @@ class CaraPemasanganPembalutPage extends StatelessWidget {
       tips.length,
       (index) => ListTile(
         leading: const Icon(Icons.check_circle, color: Colors.pink),
-        title: Text(
-          tips[index],
-          style: const TextStyle(fontSize: 16),
+        title: Align(
+          alignment: Alignment.centerLeft, // Pastikan teks dimulai dari kiri
+          child: Text(
+            tips[index],
+            textAlign: TextAlign.justify, // Rata kanan-kiri
+            style: const TextStyle(fontSize: 16),
+          ),
         ),
       ),
     );
@@ -144,9 +154,13 @@ class CaraPemasanganPembalutPage extends StatelessWidget {
       usageTips.length,
       (index) => ListTile(
         leading: const Icon(Icons.check_circle_outline, color: Colors.pink),
-        title: Text(
-          usageTips[index],
-          style: const TextStyle(fontSize: 16),
+        title: Align(
+          alignment: Alignment.centerLeft, // Pastikan teks dimulai dari kiri
+          child: Text(
+            usageTips[index],
+            textAlign: TextAlign.justify, // Rata kanan-kiri
+            style: const TextStyle(fontSize: 16),
+          ),
         ),
       ),
     );

@@ -8,7 +8,8 @@ class KebersihanAreaKewanitaanPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Kebersihan Area Kewanitaan'),
-        backgroundColor: Colors.pink[100], // Soft Pink Color
+        backgroundColor: Colors.pink[200], // Soft Pink Color
+        foregroundColor: Colors.white, // Menjadikan warna judul putih
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -150,6 +151,7 @@ class KebersihanAreaKewanitaanPage extends StatelessWidget {
                   const SizedBox(height: 8),
                   Text(
                     description,
+                    textAlign: TextAlign.justify, // Justify the text
                     style: const TextStyle(fontSize: 14),
                   ),
                 ],

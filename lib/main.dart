@@ -47,7 +47,7 @@ class BottomNavBarScreenState extends State<BottomNavBarScreen> {
     'Kalender Haid',
     'Kalender Tablet Tambah Darah',
     'Edukasi Menstruasi',
-    'Profil Pengguna',
+    'Profile',
   ];
 
   @override
@@ -56,6 +56,7 @@ class BottomNavBarScreenState extends State<BottomNavBarScreen> {
       appBar: AppBar(
         title: Text(_titles[_currentIndex]), // Judul sesuai tab
         backgroundColor: Colors.pink.shade200,
+        foregroundColor: Colors.white, // Menjadikan warna judul putih
       ),
       body: _screens[_currentIndex], // Tampilan layar berdasarkan tab
       bottomNavigationBar: BottomNavigationBar(
@@ -82,7 +83,7 @@ class BottomNavBarScreenState extends State<BottomNavBarScreen> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            label: 'Profil',
+            label: 'Profile',
           ),
         ],
       ),
