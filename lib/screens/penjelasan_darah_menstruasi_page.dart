@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ArtiWarnaKeputihanPage extends StatelessWidget {
   const ArtiWarnaKeputihanPage({super.key});
@@ -7,7 +8,14 @@ class ArtiWarnaKeputihanPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Arti Warna Keputihan'),
+        title: Text(
+          'Arti Warna Keputihan',
+          style: GoogleFonts.poppins(
+            // Menggunakan Google Fonts di AppBar
+            fontSize: 19,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         backgroundColor: Colors.pink[200], // Soft pink for consistency
         foregroundColor: Colors.white, // Menjadikan warna judul putih
       ),

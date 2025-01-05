@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart'; // Import untuk Google Fonts
 
 class KebersihanAreaKewanitaanPage extends StatelessWidget {
   const KebersihanAreaKewanitaanPage({super.key});
@@ -7,7 +8,14 @@ class KebersihanAreaKewanitaanPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Kebersihan Area Kewanitaan'),
+        title: Text(
+          'Kebersihan Area Kewanitaan',
+          style: GoogleFonts.poppins(
+            // Gunakan Google Fonts untuk AppBar
+            fontSize: 19,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         backgroundColor: Colors.pink[200], // Soft Pink Color
         foregroundColor: Colors.white, // Menjadikan warna judul putih
       ),
@@ -18,7 +26,8 @@ class KebersihanAreaKewanitaanPage extends StatelessWidget {
             // Judul untuk kebersihan area kewanitaan sehari-hari
             Text(
               'Cara menjaga kebersihan area kewanitaan sehari-hari:',
-              style: TextStyle(
+              style: GoogleFonts.poppins(
+                // Gunakan Google Fonts untuk teks
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
                 color: Colors.pink[300], // Soft Pink Accent
@@ -69,7 +78,8 @@ class KebersihanAreaKewanitaanPage extends StatelessWidget {
             // Judul untuk kebersihan area kewanitaan saat menstruasi
             Text(
               'Cara menjaga kebersihan area kewanitaan saat menstruasi:',
-              style: TextStyle(
+              style: GoogleFonts.poppins(
+                // Gunakan Google Fonts untuk teks
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
                 color: Colors.pink[300], // Soft Pink Accent
@@ -142,7 +152,8 @@ class KebersihanAreaKewanitaanPage extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: const TextStyle(
+                    style: GoogleFonts.poppins(
+                      // Gunakan Google Fonts untuk teks
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                       color: Colors.pinkAccent, // Soft Pink Color for Title
@@ -152,7 +163,10 @@ class KebersihanAreaKewanitaanPage extends StatelessWidget {
                   Text(
                     description,
                     textAlign: TextAlign.justify, // Justify the text
-                    style: const TextStyle(fontSize: 14),
+                    style: GoogleFonts.poppins(
+                      // Gunakan Google Fonts untuk teks
+                      fontSize: 14,
+                    ),
                   ),
                 ],
               ),

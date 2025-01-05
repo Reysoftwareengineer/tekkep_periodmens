@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class NutrisiHarusDikonsumsiPage extends StatelessWidget {
   const NutrisiHarusDikonsumsiPage({super.key});
@@ -84,17 +85,24 @@ class NutrisiHarusDikonsumsiPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Nutrisi yang Harus Dikonsumsi'),
+        title: Text(
+          'Nutrisi yang Harus Dikonsumsi',
+          style: GoogleFonts.poppins(
+            // Menggunakan Google Fonts di AppBar
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+          ),
+        ),
         backgroundColor: Colors.pink[200], // Soft pink for consistency
         foregroundColor: Colors.white, // Menjadikan warna judul putih
       ),
       body: ListView(
         padding: const EdgeInsets.all(16.0),
         children: [
-          Center(
+          const Center(
             child: Text(
               'ASUPAN YANG DAPAT MELANCARKAN MENSTRUASI',
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
@@ -125,10 +133,10 @@ class NutrisiHarusDikonsumsiPage extends StatelessWidget {
                 ),
               )),
           const SizedBox(height: 16),
-          Center(
+          const Center(
             child: Text(
               'MAKANAN YANG TIDAK DIANJURKAN SAAT MENSTRUASI',
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),

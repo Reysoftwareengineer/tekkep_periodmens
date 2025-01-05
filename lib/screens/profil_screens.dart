@@ -1,4 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart'; // Tambahkan dependensi intl untuk format tanggal
+import 'package:google_fonts/google_fonts.dart'; // Import google fonts
+import 'infoapk.dart'; // Import the InfoAPKScreen
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -9,14 +14,57 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   // Menyimpan data profil yang bisa diubah
-  final TextEditingController _nameController =
-      TextEditingController(text: 'John Doe');
-  final TextEditingController _emailController =
-      TextEditingController(text: 'john.doe@example.com');
-  final TextEditingController _addressController =
-      TextEditingController(text: 'Jl. Contoh Alamat, No. 123');
-  final TextEditingController _phoneController =
-      TextEditingController(text: '0812-3456-7890');
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _addressController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _ageController = TextEditingController();
+
+  // Mendapatkan data pengguna dari Firestore
+  Future<void> _getUserData() async {
+    User? user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      // Mengambil data pengguna berdasarkan uid
+      DocumentSnapshot snapshot = await FirebaseFirestore.instance
+          .collection('users')
+          .doc(user.uid)
+          .get();
+
+      if (snapshot.exists) {
+        var userData = snapshot.data() as Map<String, dynamic>;
+        setState(() {
+          _nameController.text = userData['name'] ?? 'Nama Tidak Ditemukan';
+          _emailController.text = userData['email'] ?? 'Email Tidak Ditemukan';
+          _addressController.text =
+              userData['address'] ?? 'Alamat Tidak Ditemukan';
+          _phoneController.text = userData['phone'] ?? 'Nomor Tidak Ditemukan';
+          _ageController.text = userData['age'] ?? 'Umur Tidak Ditemukan';
+        });
+      }
+    }
+  }
+
+  // Fungsi untuk menghitung usia dari tanggal lahir
+  void _calculateAge(String birthDate) {
+    DateTime birthDateTime = DateFormat('yyyy-MM-dd')
+        .parse(birthDate); // Asumsikan format tanggal di Firestore: yyyy-MM-dd
+    DateTime currentDate = DateTime.now();
+
+    int age = currentDate.year - birthDateTime.year;
+    if (currentDate.month < birthDateTime.month ||
+        (currentDate.month == birthDateTime.month &&
+            currentDate.day < birthDateTime.day)) {
+      age--;
+    }
+
+    _ageController.text = '$age tahun'; // Menambahkan "tahun" pada usia
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _getUserData(); // Mengambil data pengguna ketika halaman pertama kali dibuka
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +98,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               _buildProfileDetail('Email', _emailController),
               _buildProfileDetail('Alamat', _addressController),
               _buildProfileDetail('Nomor HP', _phoneController),
+              _buildProfileDetail('Usia', _ageController), // Kotak untuk usia
 
               const SizedBox(height: 30),
 
@@ -57,6 +106,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ElevatedButton(
                 onPressed: () {
                   // Logika untuk logout
+                  FirebaseAuth.instance.signOut();
                   Navigator.of(context).pushReplacementNamed('/login');
                 },
                 style: ElevatedButton.styleFrom(
@@ -100,7 +150,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
           children: [
             Text(
               label,
-              style: const TextStyle(
+              style: GoogleFonts.lato(
+                // Menggunakan Google Fonts
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
               ),
@@ -114,7 +165,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   hintText: 'Masukkan $label',
                   hintStyle: TextStyle(color: Colors.grey.shade600),
                 ),
-                style: const TextStyle(fontSize: 14),
+                style: GoogleFonts.poppins(
+                  // Menggunakan Google Fonts pada TextFormField
+                  fontSize: 15,
+                ),
+                readOnly: true, // Membaca data, tidak bisa diubah
               ),
             ),
           ],

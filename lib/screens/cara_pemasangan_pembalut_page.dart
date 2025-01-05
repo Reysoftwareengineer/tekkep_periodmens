@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart'; // Import untuk Google Fonts
 
 class CaraPemasanganPembalutPage extends StatelessWidget {
   const CaraPemasanganPembalutPage({super.key});
@@ -7,9 +8,13 @@ class CaraPemasanganPembalutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           'Cara Pemasangan Pembalut',
-          style: TextStyle(fontWeight: FontWeight.normal),
+          style: GoogleFonts.poppins(
+            // Gunakan Google Fonts untuk AppBar
+            fontWeight: FontWeight.bold,
+            fontSize: 19,
+          ),
         ),
         backgroundColor: Colors.pink[200],
         foregroundColor: Colors.white, // Menjadikan warna judul putih
@@ -40,11 +45,13 @@ class CaraPemasanganPembalutPage extends StatelessWidget {
               ),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
             child: Text(
               'Langkah-langkah yang benar untuk memasang pembalut:',
-              style: TextStyle(
+              style: GoogleFonts.poppins(
+                // Gunakan Google Fonts untuk teks
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
                 color: Colors.pink,
@@ -55,11 +62,13 @@ class CaraPemasanganPembalutPage extends StatelessWidget {
 
           const Divider(height: 40, thickness: 1),
 
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
             child: Text(
               'Tips Memilih Pembalut yang Tepat:',
-              style: TextStyle(
+              style: GoogleFonts.poppins(
+                // Gunakan Google Fonts untuk teks
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
                 color: Colors.pink,
@@ -70,11 +79,13 @@ class CaraPemasanganPembalutPage extends StatelessWidget {
 
           const Divider(height: 40, thickness: 1),
 
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
             child: Text(
               'Tips Penggunaan Pembalut yang Sehat:',
-              style: TextStyle(
+              style: GoogleFonts.poppins(
+                // Gunakan Google Fonts untuk teks
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
                 color: Colors.pink,
@@ -112,7 +123,10 @@ class CaraPemasanganPembalutPage extends StatelessWidget {
           child: Text(
             steps[index],
             textAlign: TextAlign.justify, // Rata kanan-kiri
-            style: const TextStyle(fontSize: 16),
+            style: GoogleFonts.poppins(
+              // Gunakan Google Fonts untuk teks
+              fontSize: 16,
+            ),
           ),
         ),
       ),
@@ -135,7 +149,10 @@ class CaraPemasanganPembalutPage extends StatelessWidget {
           child: Text(
             tips[index],
             textAlign: TextAlign.justify, // Rata kanan-kiri
-            style: const TextStyle(fontSize: 16),
+            style: GoogleFonts.poppins(
+              // Gunakan Google Fonts untuk teks
+              fontSize: 16,
+            ),
           ),
         ),
       ),
@@ -159,7 +176,10 @@ class CaraPemasanganPembalutPage extends StatelessWidget {
           child: Text(
             usageTips[index],
             textAlign: TextAlign.justify, // Rata kanan-kiri
-            style: const TextStyle(fontSize: 16),
+            style: GoogleFonts.poppins(
+              // Gunakan Google Fonts untuk teks
+              fontSize: 16,
+            ),
           ),
         ),
       ),
